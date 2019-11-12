@@ -11,8 +11,8 @@
     <style>
         .uppercase {
             text-transform: uppercase;
-  }
-    </style>    
+        }
+    </style>
 </head>
 
 <body>
@@ -43,34 +43,50 @@
         </div>
     </div>
     <script>
-        function handleClick() {
-            const inputEl = document.getElementById("Input-ID")
-            // console.log(inputEl);
-
-            const userInput = inputEl.value;
-            // console.log(userInput);
-
-            //Another quick way to define the userInput
-            // userInput = prompt("give me a number")   
-            const winnerEl = document.getElementById("triggerwin")
-            // console.log(winnerEl);
-
-            // index starts at 0
-            const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
+        function startGame() {
+            const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
             const randomIndex = Math.floor(Math.random() * letters.length);
             console.log(randomIndex);
             // console.log(letters.length);
             console.log(letters[randomIndex]);
 
-            if (userInput.toUpperCase() === (letters[randomIndex])) {
-                // console.log("winner");
-                winnerEl.innerHTML = "winner";
-            } else {
-                // console.log("loser");
-                winnerEl.innerHTML = "Loser";
-            }
 
-        }  
+            // start handleClick function inside of startGame function
+            function handleClick() {
+                const inputEl = document.getElementById("Input-ID")
+                // console.log(inputEl);
+
+                const userInput = inputEl.value;
+                // console.log(userInput);
+
+                //Another quick way to define the userInput
+                // userInput = prompt("give me a number")   
+                const winnerEl = document.getElementById("triggerwin")
+                // console.log(winnerEl);
+
+                // // index starts at 0
+                // const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+                // const randomIndex = Math.floor(Math.random() * letters.length);
+                // console.log(randomIndex);
+                // // console.log(letters.length);
+                // console.log(letters[randomIndex]);
+
+                if (userInput.toUpperCase() === letters[randomIndex]) {
+                    // console.log("winner");
+                    winnerEl.innerHTML = "winner";
+                } else {
+                    // console.log("loser");
+                    winnerEl.innerHTML = "Loser";
+                }
+
+
+            }
+            window.handleClick = handleClick;
+
+        }
+        startGame();
+
+
     </script>
 </body>
 
