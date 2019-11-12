@@ -39,16 +39,28 @@
                 <hr>
                 <p class="mb-0">Find out.</p>
             </div>
-
+        </div>
+        <div class="row">
+            <div>
+                <h1 class="text-center alert-heading">Guesses</h1>
+                <hr>
+                <p id="guesseslist" class="mb-0">...</p>
+            </div>
         </div>
     </div>
     <script>
         function startGame() {
             const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
             const randomIndex = Math.floor(Math.random() * letters.length);
-            console.log(randomIndex);
+            // console.log(randomIndex);
             // console.log(letters.length);
             console.log(letters[randomIndex]);
+            const numberToGuess = letters[randomIndex]
+            // show the user their wrong guesses
+            const guesses = [];
+            console.log(guesses)
+            // const guessesEl = document.getElementById(guesseslist) - my guess, maybe not correct
+
 
 
             // start handleClick function inside of startGame function
@@ -64,19 +76,27 @@
                 const winnerEl = document.getElementById("triggerwin")
                 // console.log(winnerEl);
 
-                // // index starts at 0
-                // const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-                // const randomIndex = Math.floor(Math.random() * letters.length);
-                // console.log(randomIndex);
-                // // console.log(letters.length);
-                // console.log(letters[randomIndex]);
-
-                if (userInput.toUpperCase() === letters[randomIndex]) {
+                if (userInput.toUpperCase() === numberToGuess) {
                     // console.log("winner");
                     winnerEl.innerHTML = "winner";
                 } else {
-                    // console.log("loser");
-                    winnerEl.innerHTML = "Loser";
+                    // if (guesses.indexOf(userInput) > -1) {    Other harder way - Look at/think more about why this works (and for the below method too)
+                    //     return alert("you already guessed that pal")
+                    // }
+                    if (guesses.includes(userInput)) {
+                        alert("you already guessed that, pal")
+                        return;
+                    }
+                    guesses.push(userInput);
+                    console.log(guesses)
+                    let message = "Your wrong guesses: ";
+                    for(let i = 0; i < guesses.length; i++){
+                        const guess = guesses[i];
+                        console.log(guess);
+                        message = message + guess + ", "
+
+                    }
+                    winnerEl.innerHTML = message;
                 }
 
 
