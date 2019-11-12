@@ -8,6 +8,11 @@
     <title>Alphabet Lottery</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .uppercase {
+            text-transform: uppercase;
+  }
+    </style>    
 </head>
 
 <body>
@@ -40,21 +45,28 @@
     <script>
         function handleClick() {
             const inputEl = document.getElementById("Input-ID")
-            console.log(inputEl);
+            // console.log(inputEl);
 
             const userInput = inputEl.value;
-            console.log(userInput);
+            // console.log(userInput);
 
             //Another quick way to define the userInput
             // userInput = prompt("give me a number")   
             const winnerEl = document.getElementById("triggerwin")
-            console.log(winnerEl);
+            // console.log(winnerEl);
 
-            if (userInput === "B") {
-                console.log("winner");
+            // index starts at 0
+            const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
+            const randomIndex = Math.floor(Math.random() * letters.length);
+            console.log(randomIndex);
+            // console.log(letters.length);
+            // console.log(letters[1]);
+
+            if (userInput.toUpperCase() === randomIndex) {
+                // console.log("winner");
                 winnerEl.innerHTML = "winner";
             } else {
-                console.log("loser");
+                // console.log("loser");
                 winnerEl.innerHTML = "Loser";
             }
 
