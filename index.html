@@ -28,11 +28,11 @@
             <button type="button" class="btn btn-block btn-primary" onclick="handleClick()">Click Me</button>
         </div>
         <div class="row row d-flex justify-content-center mt-5">
-            <div class="alert alert-success" role="alert">
-                <h1 class="text-center alert-heading">Well done!</h1>
-                <p>You won</p>
+            <div id="triggerwin" class="alert alert-success" role="alert">
+                <h1 class="text-center alert-heading">Wow.</h1>
+                <p>Will you win?</p>
                 <hr>
-                <p class="mb-0">You win nothing, though.</p>
+                <p class="mb-0">Find out.</p>
             </div>
 
         </div>
@@ -42,16 +42,20 @@
             const inputEl = document.getElementById("Input-ID")
             console.log(inputEl);
 
-            const userInput = inputEl.value; //Question: does userInput not equal the entire Element as well as the inputed value?
+            const userInput = inputEl.value;
             console.log(userInput);
 
             //Another quick way to define the userInput
             // userInput = prompt("give me a number")   
+            const winnerEl = document.getElementById("triggerwin")
+            console.log(winnerEl);
 
             if (userInput === "B") {
                 console.log("winner");
+                winnerEl.innerHTML = "winner";
             } else {
                 console.log("loser");
+                winnerEl.innerHTML = "Loser";
             }
 
         }  
