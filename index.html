@@ -60,9 +60,9 @@
             const randomIndex = Math.floor(Math.random() * letters.length);
             console.log(randomIndex);
             // console.log(letters.length);
-            // console.log(letters[1]);
+            console.log(letters[randomIndex]);
 
-            if (userInput.toUpperCase() === randomIndex) {
+            if (userInput.toUpperCase() === (letters[randomIndex])) {
                 // console.log("winner");
                 winnerEl.innerHTML = "winner";
             } else {
